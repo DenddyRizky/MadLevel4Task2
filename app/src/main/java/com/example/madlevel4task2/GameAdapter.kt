@@ -12,7 +12,7 @@ class GameAdapter(private val games: List<Game>) : RecyclerView.Adapter<GameAdap
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GameAdapter.ViewHolder {
         return ViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.fragment_game, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.game, parent, false)
         )
     }
 

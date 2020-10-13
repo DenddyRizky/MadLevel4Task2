@@ -1,11 +1,15 @@
 package com.example.madlevel4task2
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_game.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import kotlin.random.Random
 
 /**
@@ -13,6 +17,8 @@ import kotlin.random.Random
  */
 class GameFragment : Fragment() {
 
+    private lateinit var gameRepository: GameRepository
+    private val mainScope = CoroutineScope(Dispatchers.Main)
 
     var gameImages: IntArray = intArrayOf(R.drawable.rock, R.drawable.paper, R.drawable.scissors)
     var results: Array<String> = arrayOf("You win!", "Draw", "Computer wins!")
@@ -27,12 +33,14 @@ class GameFragment : Fragment() {
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_game, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        gameRepository = GameRepository(requireContext())
 
         iv_rock_option.setOnClickListener{
             playGame(rock)
@@ -55,6 +63,7 @@ class GameFragment : Fragment() {
         ivPlayer.setImageResource(gameImages[playerChoice])
         tvResult.text = results.get(result)
 
+        addGameHistory(playerChoice, computerChoice, result)
     }
 
     private fun resultDecider(player: Int, computer: Int): Int {
@@ -72,5 +81,15 @@ class GameFragment : Fragment() {
 
     private fun computerPick() : Int{
         return Random.nextInt(0,3)
+    }
+
+    private fun addGameHistory(playerMove: Int, computerMove: Int, gameResult: Int){
+        mainScope.launch {
+            val game = Game(playerMove = playerMove, computerMove = computerMove, gameResult = gameResult)
+
+            withContext(Dispatchers.IO){
+                gameRepository.insertGame(game)
+            }
+        }
     }
 }

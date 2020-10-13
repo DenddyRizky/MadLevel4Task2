@@ -5,8 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_game.*
 import kotlin.random.Random
 
@@ -15,8 +13,15 @@ import kotlin.random.Random
  */
 class GameFragment : Fragment() {
 
+
     var gameImages: IntArray = intArrayOf(R.drawable.rock, R.drawable.paper, R.drawable.scissors)
     var results: Array<String> = arrayOf("You win!", "Draw", "Computer wins!")
+    var rock = 0
+    var paper = 1
+    var sciccors = 2
+    var win = 0
+    var draw = 1
+    var lose = 2
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -30,15 +35,15 @@ class GameFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         iv_rock_option.setOnClickListener{
-            playGame(0)
+            playGame(rock)
         }
 
         iv_paper_option.setOnClickListener{
-            playGame(1)
+            playGame(paper)
         }
 
         iv_scissors_option.setOnClickListener{
-            playGame(2)
+            playGame(sciccors)
         }
     }
 
@@ -49,27 +54,20 @@ class GameFragment : Fragment() {
         ivComputer.setImageResource(gameImages[computerChoice])
         ivPlayer.setImageResource(gameImages[playerChoice])
         tvResult.text = results.get(result)
+
     }
 
-    private fun resultDecider(player: Int, computer: Int) : Int{
-        var rock = 0
-        var paper = 1
-        var sciccors = 2
+    private fun resultDecider(player: Int, computer: Int): Int {
 
-        //PLAYER CHOOSES ROCK
-        if(player == rock && computer == sciccors) return 0
-        else if(player == rock && computer == rock) return 1
-        else if(player == rock && computer == paper) return 2
-
-        //PLAYER CHOOSES PAPER
-        else if(player == paper && computer == rock) return 0
-        else if(player == paper && computer == paper) return 1
-        else if(player == paper && computer == sciccors) return 2
-
-        //PLAYER CHOOSES SCICCORS
-        else if(player == sciccors && computer == paper) return 0
-        else if(player == sciccors && computer == sciccors) return 1
-        else if(player == sciccors && computer == rock) return 2
+        return if(player == computer){
+            draw
+        } else if(player == rock && computer == sciccors){
+            win
+        } else if(player == paper && computer == rock){
+            win
+        } else if(player == sciccors && computer == paper){
+            win
+        } else lose
     }
 
     private fun computerPick() : Int{

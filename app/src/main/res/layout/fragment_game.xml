@@ -35,7 +35,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvSubtitle" />
 
     <TextView
-        android:id="@+id/tvResult"
+        android:id="@+id/tvR"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="176dp"
@@ -46,19 +46,19 @@
         app:layout_constraintTop_toBottomOf="@+id/horizontal_divider_game" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/ivC"
         android:layout_width="80dp"
         android:layout_height="82dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="36dp"
         android:background="@color/colorPrimary"
         android:src="@drawable/paper"
-        app:layout_constraintEnd_toStartOf="@+id/tvVS"
+        app:layout_constraintEnd_toStartOf="@+id/tvS"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvResult" />
+        app:layout_constraintTop_toBottomOf="@+id/tvR" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/ivP"
         android:layout_width="80dp"
         android:layout_height="82dp"
         android:layout_marginTop="36dp"
@@ -66,11 +66,11 @@
         android:background="@color/colorPrimary"
         android:src="@drawable/paper"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tvVS"
-        app:layout_constraintTop_toBottomOf="@+id/tvResult" />
+        app:layout_constraintStart_toEndOf="@+id/tvS"
+        app:layout_constraintTop_toBottomOf="@+id/tvR" />
 
     <TextView
-        android:id="@+id/tvVS"
+        android:id="@+id/tvS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
@@ -79,29 +79,29 @@
         android:textAlignment="viewStart"
         android:textSize="30sp"
         android:textStyle="bold|italic"
-        app:layout_constraintEnd_toStartOf="@+id/imageView2"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/tvResult" />
+        app:layout_constraintEnd_toStartOf="@+id/ivP"
+        app:layout_constraintStart_toEndOf="@+id/ivC"
+        app:layout_constraintTop_toBottomOf="@+id/tvR" />
 
     <TextView
-        android:id="@+id/tvComputer"
+        android:id="@+id/tvC"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="65dp"
         android:layout_marginTop="8dp"
         android:text="@string/text_computer"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/ivC" />
 
     <TextView
-        android:id="@+id/tvYou"
+        android:id="@+id/tvY"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="80dp"
         android:text="@string/text_you"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/ivP" />
 
     <ImageView
         android:id="@+id/iv_rock_option"

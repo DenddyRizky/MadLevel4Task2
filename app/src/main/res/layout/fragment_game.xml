@@ -35,7 +35,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvSubtitle" />
 
     <TextView
-        android:id="@+id/tvR"
+        android:id="@+id/tvResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="176dp"
@@ -46,19 +46,19 @@
         app:layout_constraintTop_toBottomOf="@+id/horizontal_divider_game" />
 
     <ImageView
-        android:id="@+id/ivC"
+        android:id="@+id/ivComputer"
         android:layout_width="80dp"
         android:layout_height="82dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="36dp"
         android:background="@color/colorPrimary"
         android:src="@drawable/paper"
-        app:layout_constraintEnd_toStartOf="@+id/tvS"
+        app:layout_constraintEnd_toStartOf="@+id/tvVS"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvR" />
+        app:layout_constraintTop_toBottomOf="@+id/tvResult" />
 
     <ImageView
-        android:id="@+id/ivP"
+        android:id="@+id/ivPlayer"
         android:layout_width="80dp"
         android:layout_height="82dp"
         android:layout_marginTop="36dp"
@@ -66,11 +66,11 @@
         android:background="@color/colorPrimary"
         android:src="@drawable/paper"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tvS"
-        app:layout_constraintTop_toBottomOf="@+id/tvR" />
+        app:layout_constraintStart_toEndOf="@+id/tvVS"
+        app:layout_constraintTop_toBottomOf="@+id/tvResult" />
 
     <TextView
-        android:id="@+id/tvS"
+        android:id="@+id/tvVS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
@@ -79,29 +79,29 @@
         android:textAlignment="viewStart"
         android:textSize="30sp"
         android:textStyle="bold|italic"
-        app:layout_constraintEnd_toStartOf="@+id/ivP"
-        app:layout_constraintStart_toEndOf="@+id/ivC"
-        app:layout_constraintTop_toBottomOf="@+id/tvR" />
+        app:layout_constraintEnd_toStartOf="@+id/ivPlayer"
+        app:layout_constraintStart_toEndOf="@+id/ivComputer"
+        app:layout_constraintTop_toBottomOf="@+id/tvResult" />
 
     <TextView
-        android:id="@+id/tvC"
+        android:id="@+id/tvComputer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="65dp"
         android:layout_marginTop="8dp"
         android:text="@string/text_computer"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivC" />
+        app:layout_constraintTop_toBottomOf="@+id/ivComputer" />
 
     <TextView
-        android:id="@+id/tvY"
+        android:id="@+id/tvYou"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="80dp"
         android:text="@string/text_you"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivP" />
+        app:layout_constraintTop_toBottomOf="@+id/ivPlayer" />
 
     <ImageView
         android:id="@+id/iv_rock_option"

@@ -9,4 +9,9 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="text_title">Welcome</string>
+    <string name="text_subtitle">Instructions: select rock, paper or sciccors to play.</string>
+    <string name="text_versus">V.S.</string>
+    <string name="text_computer">Computer</string>
+    <string name="text_you">You</string>
 </resources>

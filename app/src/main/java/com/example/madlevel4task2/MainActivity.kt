@@ -26,14 +26,4 @@ class MainActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
     }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        if(item.itemId == R.id.iv_action_history){
-            navController.navigate(R.id.action_FirstFragment_to_SecondFragment)
-        }
-        return true
-    }
 }

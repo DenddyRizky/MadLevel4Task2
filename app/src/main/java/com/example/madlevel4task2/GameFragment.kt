@@ -33,7 +33,7 @@ class GameFragment : Fragment() {
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-
+        setHasOptionsMenu(true)
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_game, container, false)
     }
@@ -52,6 +52,22 @@ class GameFragment : Fragment() {
 
         iv_scissors_option.setOnClickListener{
             playGame(sciccors)
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        menu.findItem(R.id.iv_action_history).isVisible = true
+        requireActivity().toolbar.title = getString(R.string.app_name)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.iv_action_history -> {
+                findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+                return true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
     }
 

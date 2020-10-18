@@ -28,6 +28,7 @@ class GameAdapter(private val games: List<Game>) : RecyclerView.Adapter<GameAdap
         fun databind(game: Game){
             itemView.ivPlayerHistory.setImageResource(gameImages[game.playerMove])
             itemView.ivComputerHistory.setImageResource(gameImages[game.computerMove])
+            itemView.tvDateHistory.text = game.gameDate.toString()
             itemView.tvResultHistory.text = results[game.gameResult]
         }
     }

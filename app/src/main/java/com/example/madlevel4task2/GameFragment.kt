@@ -1,7 +1,9 @@
 package com.example.madlevel4task2
 
+import android.os.Build
 import android.os.Bundle
 import android.view.*
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.activity_main.*
@@ -10,6 +12,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.sql.Timestamp
+import java.util.*
 import kotlin.random.Random
 
 /**
@@ -38,6 +42,7 @@ class GameFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_game, container, false)
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         gameRepository = GameRepository(requireContext())
@@ -71,6 +76,7 @@ class GameFragment : Fragment() {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun playGame(playerChoice: Int){
         var computerChoice = computerPick()
         var result = resultDecider(playerChoice, computerChoice)
@@ -101,7 +107,7 @@ class GameFragment : Fragment() {
 
     private fun addGameHistory(playerMove: Int, computerMove: Int, gameResult: Int){
         mainScope.launch {
-            val game = Game(playerMove = playerMove, computerMove = computerMove, gameResult = gameResult)
+            val game = Game(playerMove, computerMove, gameResult)
 
             withContext(Dispatchers.IO){
                 gameRepository.insertGame(game)

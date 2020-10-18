@@ -3,6 +3,7 @@ package com.example.madlevel4task2
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.util.*
 
 @Entity(tableName = "gameTable")
 data class Game(
@@ -15,6 +16,9 @@ data class Game(
 
     @ColumnInfo(name = "gameResult")
     var gameResult: Int,
+
+    @ColumnInfo(name = "date")
+    val gameDate: Date = Date(),
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")

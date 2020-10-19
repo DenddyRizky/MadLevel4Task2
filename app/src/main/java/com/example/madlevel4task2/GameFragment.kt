@@ -45,6 +45,9 @@ class GameFragment : Fragment() {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //Removes the backbutton
+        (activity as MainActivity).changeBackButton(false)
+
         gameRepository = GameRepository(requireContext())
 
         iv_rock_option.setOnClickListener{
@@ -63,6 +66,7 @@ class GameFragment : Fragment() {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         menu.findItem(R.id.iv_action_history).isVisible = true
+
         requireActivity().toolbar.title = getString(R.string.app_name)
     }
 

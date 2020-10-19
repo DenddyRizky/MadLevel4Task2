@@ -6,6 +6,7 @@ import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import androidx.core.graphics.drawable.toDrawable
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 
@@ -18,12 +19,15 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(findViewById(R.id.toolbar))
 
         navController = findNavController(R.id.nav_host_fragment)
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
+    }
+
+    fun changeBackButton(setButton: Boolean){
+        supportActionBar?.setDisplayHomeAsUpEnabled(setButton)
     }
 }

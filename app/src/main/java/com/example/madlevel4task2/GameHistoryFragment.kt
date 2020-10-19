@@ -2,8 +2,8 @@ package com.example.madlevel4task2
 
 import android.os.Bundle
 import android.view.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import android.widget.Button
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -36,6 +36,8 @@ class GameHistoryFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //Adds the back button
+        (activity as MainActivity).changeBackButton(true)
 
         initRv()
 
@@ -48,6 +50,7 @@ class GameHistoryFragment : Fragment() {
         menu.findItem(R.id.iv_action_history).isVisible = false
         menu.findItem(R.id.iv_action_delete_history).isVisible = true
         requireActivity().toolbar.title = "Your Game History"
+
         // If Up button is clicked, pop the fragment off the Backstack
         requireActivity().toolbar.setNavigationOnClickListener {
             findNavController().popBackStack()
